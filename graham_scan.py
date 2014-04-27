@@ -51,18 +51,18 @@ def read_input_file(file):
 def print_out_file(point_array, outfile):
     """Prints the output file containing the keys of the points in the convex hull."""
     with open(outfile, 'wb') as f:
-        out = ",".join([x.get_key() for x in point_array])
+        out = ",".join((x.get_key() for x in point_array))
         f.write(bytes(out, "utf-8"))
 
 
 def sort_points(point_array):
     """Return point_array sorted by leftmost first, then by slope, ascending."""
 
-    def slope(point_y):
+    def slope(y):
         """returns the slope of the 2 points."""
-        point_x = point_array[0]
-        return (point_x.get_y() - point_y.get_y()) / \
-               (point_x.get_x() - point_y.get_x())
+        x = point_array[0]
+        return (x.get_y() - y.get_y()) / \
+               (x.get_x() - y.get_x())
 
     point_array.sort()  # put leftmost first
     point_array = point_array[:1] + sorted(point_array[1:], key=slope)

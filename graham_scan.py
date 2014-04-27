@@ -31,7 +31,7 @@ class Point:
         f = lambda n: int(n) if n.is_integer() else n
         return str(self.key) + ',\t' + str(f(self.x)) + ',\t' + str(f(self.y))
 
-    __lt__ = lambda self, other: self.x < other.x
+    __lt__ = lambda self, other: self.y < other.y if (self.x == other.x) else self.x < other.x
     __eq__ = lambda self, other: self.x == other.x and self.y == other.y
 
 

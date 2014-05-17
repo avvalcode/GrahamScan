@@ -80,9 +80,9 @@ def graham_scan(point_array):
         """
 
         return (b.get_y() - a.get_y()) * \
-            (c.get_x() - a.get_x()) - \
-            (b.get_x() - a.get_x()) * \
-            (c.get_y() - a.get_y())
+                (c.get_x() - a.get_x()) - \
+                (b.get_x() - a.get_x()) * \
+                (c.get_y() - a.get_y())
 
     # convex_hull is a stack of points beginning with the leftmost point.
     convex_hull = []
